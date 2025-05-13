@@ -35,11 +35,23 @@
             <Grid>
 
                 <Grid.ColumnDefinitions>
+                    
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
 
+                <TextBox Width="100" 
+                         HorizontalAlignment="Left" 
+                         Margin="5,0,0,0"
+                         Background="#343131"
+                         BorderThickness="0,0,0,1"
+                         BorderBrush="#D8A25E"
+                         Foreground="#A04747"
+                         CaretBrush="#A04747"
+                         Text="{Binding Filtru, UpdateSourceTrigger=PropertyChanged}"
+                          VerticalContentAlignment="Center"></TextBox>
+                
                 <Button Grid.Column="1"
 x:Name="btnminimize"
 
@@ -113,10 +125,57 @@ Background="{TemplateBinding Background}">
 
             </Grid>
 
-            <Grid Grid.Row="1" Margin="5,2,0,0">
-                
-                
+            
+                <Grid Grid.Row="1" Margin="5,2,0,0">
+
+                <ListView Background="#343131" BorderThickness="0" ItemsSource="{Binding Oameni}">
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Margin" Value="0,5,0,5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                    <ListView.ItemTemplate>
+                    <DataTemplate>
+                            <Border Background="Transparent" Cursor="Hand"
+                                    BorderBrush="#D8A25E"
+                                    BorderThickness="1"
+                                    CornerRadius="20">
+                                <Grid Height="40" >
+                                    <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                                    <Ellipse Width="10" Height="10" 
+                                   
+                                   Fill="Green"
+                                   Grid.Column="0"
+                                   />
+
+                                    <TextBlock Grid.Column="1" Text="{Binding nume}"  VerticalAlignment="Center"
+                                           
+                                HorizontalAlignment="Center" Foreground="#D8A25E" FontFamily="Georgia" FontSize="20"/>
+
+                                    <TextBlock Grid.Column="2" Text="{Binding data}" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,0,10,0" Foreground="#D8A25E" FontFamily="Georgia" FontSize="20"/>
+
+                        </Grid>
+                            </Border>
+                        </DataTemplate>
+                </ListView.ItemTemplate>
+                </ListView>
+
             </Grid>
+            
 
         </Grid>
 
@@ -137,7 +196,8 @@ Background="{TemplateBinding Background}">
                         Content="Adaugare admin"
                         Foreground="#D8A25E"
                         Cursor="Hand"
-                        Click="DeschidereAdaugareAdmin">
+                        Click="DeschidereAdaugareAdmin"
+                        FontSize="20">
 
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -153,6 +213,29 @@ Background="{TemplateBinding Background}">
                         </ControlTemplate>
                     </Button.Template>
 
+
+                </Button>
+
+                <Button Grid.Row="1"
+                        Background="#A04747"
+                        Content="Stergere Admin"
+                        Foreground="#1c1a1a"
+                        Cursor="Hand" Margin="0,2,0,0"
+                        FontSize="20">
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border 
+CornerRadius="5"
+Background="{TemplateBinding Background}"
+HorizontalAlignment="Stretch"
+VerticalAlignment="Stretch">
+                                <ContentPresenter 
+    VerticalAlignment="Center"
+    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
 
                 </Button>
 

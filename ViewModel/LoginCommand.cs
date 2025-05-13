@@ -42,7 +42,8 @@ namespace Modern.ViewModel
 
                     bool userfound = context.Users.Any(user => user.name == good && user.password == parola);
 
-
+                    
+                    
 
 
                     if (userfound)

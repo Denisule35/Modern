@@ -142,7 +142,7 @@
                            TextAlignment="Center"
                            Margin="0,5,0,0"/>
 
-                    <TextBlock Text="sername:"
+                    <TextBlock Text="username:"
            Foreground="#D8A25E"
            TextWrapping="Wrap"
            TextAlignment="Left"

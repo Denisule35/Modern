@@ -18,7 +18,21 @@ namespace Modern
             
             DatabaseFacade facade =new DatabaseFacade(new Bazadateconnect());
             facade.EnsureCreated();
-            
+
+            User somo = new User
+            {
+                name = "somo",
+                password = "kickbox"
+            };
+
+            using (Bazadateconnect bz = new Bazadateconnect())
+            {
+                if (!bz.Users.Any())
+                {
+                    bz.Users.Add(somo);
+                    bz.SaveChanges();
+                }
+            }
             
             
         }
