@@ -10,33 +10,25 @@
         WindowState="Maximized"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="#343131"
+        Background="{Binding Gri}"
         d:DesignWidth="750" d:DesignHeight="500">
 
-   
-
-
-    <Grid>
-       
+    <Grid Background="{Binding Gri}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.28*"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-       
-        <Grid Grid.Column="1" >
-
+        <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                
                 <RowDefinition Height="0.04*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid>
-
                 <Grid.ColumnDefinitions>
-                    
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
@@ -44,91 +36,120 @@
                 <TextBox Width="100" 
                          HorizontalAlignment="Left" 
                          Margin="5,0,0,0"
-                         Background="#343131"
+                         Background="{Binding Gri}"
                          BorderThickness="0,0,0,1"
-                         BorderBrush="#D8A25E"
-                         Foreground="#A04747"
-                         CaretBrush="#A04747"
+                         BorderBrush="{Binding Galben}"
+                         Foreground="{Binding Rosu}"
+                         CaretBrush="{Binding Rosu}"
                          Text="{Binding Filtru, UpdateSourceTrigger=PropertyChanged}"
-                          VerticalContentAlignment="Center"></TextBox>
-                
-                <Button Grid.Column="1"
-x:Name="btnminimize"
+                         VerticalContentAlignment="Center" />
 
-BorderThickness="0"
-Content="-"
-Foreground="#343131"
-FontSize="12"
-Cursor="Hand"
-Click="Butonminimize">
-
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#D8A25E"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#854836"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                <Button Grid.Column="1" Command="{Binding SchimbareTema}" Cursor="Hand">
 
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border  Width="30"
-                    
-                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                  HorizontalAlignment="Center"/>
+                            <Border Background="{Binding Negru}"  Padding="1" Width="30" RenderOptions.BitmapScalingMode="HighQuality">
+                                <Border>
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="E:\seincearca\Modern\imagini\bec.png" Stretch="UniformToFill"/>
+                                    </Border.Background>
+                                </Border>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
 
                 </Button>
 
-
-
-                <Button
-    Grid.Column="3"
-    x:Name="btnexit"
-    BorderThickness="0"
-    Content="X"
-    FontSize="12"
-    Cursor="Hand"
-    Click="Butonclose">
-
+                <Button Grid.Column="2"
+                        x:Name="btnminimize"
+                        BorderThickness="0"
+                        Content="-"
+                        Foreground="{Binding Gri}"
+                        FontSize="12"
+                        Cursor="Hand"
+                        Click="Butonminimize">
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="Background" Value="#A04747"/>
+                            <Setter Property="Background" Value="{Binding Galben}"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#854836"/>
+                                    <Setter Property="Background" Value="{Binding Rosu}"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
-
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border Width="30"
-
-
-Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-  HorizontalAlignment="Center"/>
+                            <Border Width="30" Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
-
                 </Button>
 
-
+                <Button Grid.Column="3"
+                        x:Name="btnexit"
+                        BorderThickness="0"
+                        Content="X"
+                        FontSize="12"
+                        Cursor="Hand"
+                        Click="Butonclose">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="{Binding Rosu}"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{Binding Rosu}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="30" Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Grid>
 
-            
-                <Grid Grid.Row="1" Margin="5,2,0,0">
+            <Grid Grid.Row="1" Margin="5,2,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <ListView Background="#343131" BorderThickness="0" ItemsSource="{Binding Oameni}">
+                <ListView Background="{Binding Gri}" BorderThickness="0" ItemsSource="{Binding Oameni}">
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ScrollBar}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ScrollBar">
+                                        <Grid Background="Transparent">
+                                            <Track Name="PART_Track" IsDirectionReversed="true" Width="13">
+                                                <Track.DecreaseRepeatButton>
+                                                    <RepeatButton Command="ScrollBar.LineUpCommand" Style="{x:Null}" Template="{x:Null}" Background="Transparent" IsTabStop="False"/>
+                                                </Track.DecreaseRepeatButton>
+                                                <Track.Thumb>
+                                                    <Thumb>
+                                                        <Thumb.Template>
+                                                            <ControlTemplate TargetType="Thumb">
+                                                                <Border Background="{Binding Galben}" BorderBrush="{Binding Galben}" CornerRadius="10" Margin="2"/>
+                                                            </ControlTemplate>
+                                                        </Thumb.Template>
+                                                    </Thumb>
+                                                </Track.Thumb>
+                                                <Track.IncreaseRepeatButton>
+                                                    <RepeatButton Command="ScrollBar.LineDownCommand" Style="{x:Null}" Template="{x:Null}" Background="Transparent" IsTabStop="False"/>
+                                                </Track.IncreaseRepeatButton>
+                                            </Track>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.Resources>
 
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
@@ -144,104 +165,97 @@ Background="{TemplateBinding Background}">
                     </ListView.ItemContainerStyle>
 
                     <ListView.ItemTemplate>
-                    <DataTemplate>
-                            <Border Background="Transparent" Cursor="Hand"
-                                    BorderBrush="#D8A25E"
-                                    BorderThickness="1"
-                                    CornerRadius="20">
-                                <Grid Height="40" >
+                        <DataTemplate>
+                            <Border Background="Transparent" Cursor="Hand" BorderBrush="{Binding Galben}" BorderThickness="1" CornerRadius="20">
+                                <Grid Height="40">
                                     <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.1*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.1*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <Ellipse Width="10" Height="10" 
-                                   
-                                   Fill="Green"
-                                   Grid.Column="0"
-                                   />
+                                    <Ellipse Width="10" Height="10" Fill="{Binding expirat}" Grid.Column="0"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding nume}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{Binding Galben}" FontFamily="Georgia" FontSize="20"/>
+                                    <TextBlock Grid.Column="2" Text="{Binding data}" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,0,10,0" Foreground="{Binding Galben}" FontFamily="Georgia" FontSize="20"/>
 
-                                    <TextBlock Grid.Column="1" Text="{Binding nume}"  VerticalAlignment="Center"
-                                           
-                                HorizontalAlignment="Center" Foreground="#D8A25E" FontFamily="Georgia" FontSize="20"/>
+                                    <Button Grid.Column="3" Padding="0,0,1,0" Margin="1,0,1,0" Command="{Binding StergereOm}">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{Binding Rosu}" CornerRadius="10" Padding="1" Width="50" RenderOptions.BitmapScalingMode="HighQuality">
+                                                    <Border>
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="E:\seincearca\Modern\imagini\gunoi.png" Stretch="UniformToFill"/>
+                                                        </Border.Background>
+                                                    </Border>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
 
-                                    <TextBlock Grid.Column="2" Text="{Binding data}" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,0,10,0" Foreground="#D8A25E" FontFamily="Georgia" FontSize="20"/>
-
-                        </Grid>
+                                    <Button Grid.Column="4" Padding="0,0,30,0" Margin="10,0,10,0" Command="{Binding RenoireAbonament}">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{Binding Negru}" CornerRadius="10" Padding="1" Width="50" RenderOptions.BitmapScalingMode="HighQuality">
+                                                    <Border>
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="E:\seincearca\Modern\imagini\renoire.png" Stretch="UniformToFill"/>
+                                                        </Border.Background>
+                                                    </Border>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </Grid>
                             </Border>
                         </DataTemplate>
-                </ListView.ItemTemplate>
+                    </ListView.ItemTemplate>
                 </ListView>
 
+                <Button Grid.Row="1" Height="80" Width="300" Command="{Binding DeschidereAdgOm}" Background="{Binding Negru}" Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderOptions.BitmapScalingMode="HighQuality">
+                                <Border>
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="E:\seincearca\Modern\imagini\kickboxer.png" Stretch="Fill"/>
+                                    </Border.Background>
+                                </Border>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </Grid>
-            
-
         </Grid>
 
-
-        <Border BorderBrush="#D8A25E"
-                BorderThickness="2"
-                CornerRadius="5">
+        <Border BorderBrush="{Binding Galben}" BorderThickness="2" CornerRadius="5">
             <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                
-            </Grid.RowDefinitions>
-
-
-                <Button Background="#1c1a1a"
-                        Content="Adaugare admin"
-                        Foreground="#D8A25E"
-                        Cursor="Hand"
-                        Click="DeschidereAdaugareAdmin"
-                        FontSize="20">
-
+                <Button Background="{Binding Negru}" Content="Adaugare Antrenor" Foreground="{Binding Galben}" Cursor="Hand" Click="DeschidereAdaugareAdmin" FontSize="18">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border 
-                CornerRadius="5"
-                Background="{TemplateBinding Background}"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
-                                <ContentPresenter 
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"/>
+                            <Border CornerRadius="5" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
-
-
                 </Button>
 
-                <Button Grid.Row="1"
-                        Background="#A04747"
-                        Content="Stergere Admin"
-                        Foreground="#1c1a1a"
-                        Cursor="Hand" Margin="0,2,0,0"
-                        FontSize="20">
-
+                <Button Grid.Row="1" Background="{Binding Rosu}" Content="Stergere Antrenor" Foreground="{Binding Gri}" Cursor="Hand" Margin="0,2,0,0" FontSize="18">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border 
-CornerRadius="5"
-Background="{TemplateBinding Background}"
-HorizontalAlignment="Stretch"
-VerticalAlignment="Stretch">
-                                <ContentPresenter 
-    VerticalAlignment="Center"
-    HorizontalAlignment="Center"/>
+                            <Border CornerRadius="5" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
-
                 </Button>
-
             </Grid>
         </Border>
-
-        
     </Grid>
 </Window>

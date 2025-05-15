@@ -43,5 +43,7 @@ namespace Modern.View
             AdaugareAdmin saba= new AdaugareAdmin();
             saba.ShowDialog();
         }
+
+        
     }
 }
