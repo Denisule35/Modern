@@ -83,6 +83,10 @@ namespace Modern.ViewModel
         public ICommand DeschidereAdgOm {  get; }
         public ICommand SchimbareTema {  get; }
 
+        public ICommand DeschidereAdgAdmin { get; }
+
+
+
         public bool elight = false;
 
         public MainWindowViewModel()
@@ -96,6 +100,7 @@ namespace Modern.ViewModel
             Oameni.Filter = FiltrareOameni;
             DeschidereAdgOm=new DeschidereAdaugareOmCommand(this);
             SchimbareTema = new SchimbareTemaCommand(this);
+            DeschidereAdgAdmin= new DeschidereAdaugareAdminCommand(this);
         }
 
         private bool FiltrareOameni(object obj)

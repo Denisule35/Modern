@@ -16,7 +16,7 @@
 
     <Border CornerRadius="22">
         <Border.Background>
-            <ImageBrush ImageSource="E:\seincearca\Modern\imagini\somo.jpg"/>
+            <ImageBrush ImageSource="/imagini/somo.jpg"/>
         </Border.Background>
         <Border CornerRadius="20"
             Background="#343131"

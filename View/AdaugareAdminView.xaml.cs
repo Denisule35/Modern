@@ -24,7 +24,7 @@ namespace Modern.View
         public AdaugareAdmin()
         {
             InitializeComponent();
-            DataContext = new AdaugareAdminVIewModel();
+            
         }
 
         

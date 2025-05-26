@@ -51,7 +51,7 @@
                             <Border Background="{Binding Negru}"  Padding="1" Width="30" RenderOptions.BitmapScalingMode="HighQuality">
                                 <Border>
                                     <Border.Background>
-                                        <ImageBrush ImageSource="E:\seincearca\Modern\imagini\bec.png" Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="/imagini/bec.png" Stretch="UniformToFill"/>
                                     </Border.Background>
                                 </Border>
                             </Border>
@@ -186,7 +186,7 @@
                                                 <Border Background="{Binding Rosu}" CornerRadius="10" Padding="1" Width="50" RenderOptions.BitmapScalingMode="HighQuality">
                                                     <Border>
                                                         <Border.Background>
-                                                            <ImageBrush ImageSource="E:\seincearca\Modern\imagini\gunoi.png" Stretch="UniformToFill"/>
+                                                            <ImageBrush ImageSource="/imagini/gunoi.png" Stretch="UniformToFill"/>
                                                         </Border.Background>
                                                     </Border>
                                                 </Border>
@@ -200,7 +200,7 @@
                                                 <Border Background="{Binding Negru}" CornerRadius="10" Padding="1" Width="50" RenderOptions.BitmapScalingMode="HighQuality">
                                                     <Border>
                                                         <Border.Background>
-                                                            <ImageBrush ImageSource="E:\seincearca\Modern\imagini\renoire.png" Stretch="UniformToFill"/>
+                                                            <ImageBrush ImageSource="/imagini/renoire.png" Stretch="UniformToFill"/>
                                                         </Border.Background>
                                                     </Border>
                                                 </Border>
@@ -219,7 +219,7 @@
                             <Border CornerRadius="10" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RenderOptions.BitmapScalingMode="HighQuality">
                                 <Border>
                                     <Border.Background>
-                                        <ImageBrush ImageSource="E:\seincearca\Modern\imagini\kickboxer.png" Stretch="Fill"/>
+                                        <ImageBrush ImageSource="/imagini/kickboxer.png" Stretch="Fill"/>
                                     </Border.Background>
                                 </Border>
                             </Border>
@@ -236,7 +236,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Button Background="{Binding Negru}" Content="Adaugare Antrenor" Foreground="{Binding Galben}" Cursor="Hand" Click="DeschidereAdaugareAdmin" FontSize="18">
+                <Button Background="{Binding Negru}" Content="Adaugare Antrenor" Foreground="{Binding Galben}" Cursor="Hand" Command="{Binding DeschidereAdgAdmin}" FontSize="18">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="5" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
