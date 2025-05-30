@@ -246,7 +246,7 @@
                     </Button.Template>
                 </Button>
 
-                <Button Grid.Row="1" Background="{Binding Rosu}" Content="Stergere Antrenor" Foreground="{Binding Gri}" Cursor="Hand" Margin="0,2,0,0" FontSize="18">
+                <Button Grid.Row="1" Background="{Binding Rosu}" Content="Stergere Antrenor" Foreground="{Binding Gri}" Cursor="Hand" Command="{Binding DeschidereStergereAdmin}" Margin="0,2,0,0" FontSize="18">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border CornerRadius="5" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

@@ -11,35 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Modern.ViewModel;
 
 namespace Modern.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StergereAdminView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StergereAdminView : Window
     {
-        public MainWindow()
+        public StergereAdminView()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
-            
-            
         }
 
-        private void Butonclose(object sender, RoutedEventArgs e)
+        private void Anulare(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Close();
         }
-
-        private void Butonminimize(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
-
-        
-
-        
     }
 }
