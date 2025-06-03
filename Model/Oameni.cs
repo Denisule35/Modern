@@ -18,5 +18,13 @@ namespace Modern.Model
 
         public DateOnly Abonament { get; set; }
 
+        public string? Nivel {  get; set; }
+
+        public string? PuncteTari { get; set; }
+
+        public string? PuncteSlabe {  get; set; }
+
+        public bool? ArePoza {  get; set; }
+
     }
 }

@@ -65,6 +65,7 @@ namespace Modern.ViewModel
 
                     Name = om.nume,
                     Abonament = om.data,
+                    ArePoza = false,
                 };
                 using (Bazadateconnect bazadedate = new Bazadateconnect())
                 {

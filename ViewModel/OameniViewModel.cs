@@ -85,6 +85,8 @@ namespace Modern.ViewModel
 
         public ICommand RenoireAbonament {  get; }
 
+        public ICommand DeschidereDetaliSportiv { get; }
+
        public OameniViewModel(string nume, DateOnly data,MainWindowViewModel mainviewmodel)
         {
             this.nume = nume;
@@ -93,6 +95,7 @@ namespace Modern.ViewModel
 
             if (DateOnly.FromDateTime(DateTime.Today) > data.AddMonths(1))
             {
+
                 
                 expirat = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A04747")); 
             }
@@ -103,6 +106,7 @@ namespace Modern.ViewModel
 
             StergereOm = new StergereOmCommand(this);
             RenoireAbonament = new RenoireAbonamentCommand(this);
+            DeschidereDetaliSportiv = new DeschidereDetaliSportivCommand(this);
 
         } 
     }

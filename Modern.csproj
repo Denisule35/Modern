@@ -12,6 +12,7 @@
     <None Remove="imagini\bec.png" />
     <None Remove="imagini\gunoi.png" />
     <None Remove="imagini\gym.jpg" />
+    <None Remove="imagini\informatikickboxer.png" />
     <None Remove="imagini\kickboxer.png" />
     <None Remove="imagini\lacat.png" />
     <None Remove="imagini\masina-removebg-preview.png" />
@@ -21,10 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="imagini\informatikickboxer.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="imagini\lacat.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Content Include="imagini\masina-removebg-preview.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imagini\placeholder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="imagini\renoire.png">

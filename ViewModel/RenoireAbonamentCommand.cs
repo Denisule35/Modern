@@ -22,7 +22,14 @@ namespace Modern.ViewModel
 
 
             _omviewmodel.data = DateOnly.FromDateTime(DateTime.Now);
-            _omviewmodel.expirat = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#D8A25E"));
+            if (_omviewmodel._mainviewmodel.elight == true)
+            {
+                _omviewmodel.expirat = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F8D5"));
+            }
+            else
+            {
+                _omviewmodel.expirat = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#D8A25E"));
+            }
 
 
             using (Bazadateconnect bz = new Bazadateconnect())
